@@ -26,14 +26,16 @@ const TodoList = () => {
     };
 
     const handleUpdate = (i) => {
-        dispatch({
-            type: "UPDATE",
-            payload: {
-                i,
-                editTask,
-            },
-        });
-        setOnEdit(false);
+        if (editTask) {
+            dispatch({
+                type: "UPDATE",
+                payload: {
+                    i,
+                    editTask,
+                },
+            });
+            setOnEdit(false);
+        }
     };
 
     return (
@@ -51,7 +53,7 @@ const TodoList = () => {
                                 <div>
                                     <input
                                         className="update"
-                                        value={editTask}
+                                        value={task.name}
                                         placeholder={tasks.name}
                                         type="text"
                                         onChange={(e) =>
@@ -59,6 +61,7 @@ const TodoList = () => {
                                         }
                                     />
                                 </div>
+
                                 <div>
                                     <button onClick={() => handleUpdate(index)}>
                                         Sauvegarder

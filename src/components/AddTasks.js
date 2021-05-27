@@ -24,7 +24,7 @@ const AddTasks = () => {
             });
         } else {
             setAdd("red");
-            setMessage("Veuillez rentrer du texte");
+            setMessage("Veuillez saisir du texte");
         }
         setTextTask("");
     };
