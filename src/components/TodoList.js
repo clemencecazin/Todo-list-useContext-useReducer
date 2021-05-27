@@ -34,8 +34,8 @@ const TodoList = () => {
                     editTask,
                 },
             });
-            setOnEdit(false);
         }
+        setOnEdit(false);
     };
 
     return (
