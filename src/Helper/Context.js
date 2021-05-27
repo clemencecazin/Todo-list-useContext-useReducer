@@ -1,4 +1,4 @@
-import { createContext, useReducer, useEffect } from "react";
+import { createContext, useReducer } from "react";
 import { taskReducer } from "../Helper/Reducer";
 
 export const AppContext = createContext();
