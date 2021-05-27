@@ -12,7 +12,6 @@ const AddTasks = () => {
         setMessage("");
         setAdd();
 
-        console.log(textTask);
         if (textTask) {
             dispatch({
                 type: "ADD_TODO",

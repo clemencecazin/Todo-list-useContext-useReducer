@@ -36,7 +36,6 @@ const TodoList = () => {
         setOnEdit(false);
     };
 
-    console.log(task);
     return (
         <div className="listing">
             {task.length === 0 && (
@@ -46,7 +45,7 @@ const TodoList = () => {
             )}
             {task.map((tasks, index) => {
                 return (
-                    <div className="todo">
+                    <div key={index} className="todo">
                         {onEdit === index ? (
                             <>
                                 <div>
