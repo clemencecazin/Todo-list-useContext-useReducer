@@ -38,59 +38,77 @@ const TodoList = () => {
 
     console.log(task);
     return (
-        <>
-            <div>
-                {task.map((tasks, index) => {
-                    return (
-                        <>
-                            {onEdit === index ? (
-                                <>
-                                    <input
-                                        type="text"
-                                        onChange={(e) =>
-                                            setEditTask(e.target.value)
+        <div className="listing">
+            {task.length === 0 && (
+                <div className="nothing">
+                    Il n'y a rien à faire pour le moment 😴
+                </div>
+            )}
+            {task.map((tasks, index) => {
+                return (
+                    <div className="todo">
+                        {onEdit === index ? (
+                            <>
+                                <input
+                                    value={editTask}
+                                    placeholder={tasks.name}
+                                    type="text"
+                                    onChange={(e) =>
+                                        setEditTask(e.target.value)
+                                    }
+                                />
+                                <button onClick={() => handleUpdate(index)}>
+                                    Save
+                                </button>
+                            </>
+                        ) : (
+                            <>
+                                <div>
+                                    <label
+                                        className={
+                                            tasks.done
+                                                ? "done-task"
+                                                : "not-done"
                                         }
-                                    />
-                                    <button onClick={() => handleUpdate(index)}>
-                                        Save
-                                    </button>
-                                </>
-                            ) : (
-                                <>
+                                        htmlFor="done"
+                                    >
+                                        <input
+                                            id="done"
+                                            type="checkbox"
+                                            onChange={() =>
+                                                handleCheck(index, tasks.done)
+                                            }
+                                        />
+                                    </label>
                                     <div className={tasks.done ? "done" : ""}>
                                         {tasks.name}
                                     </div>
+                                </div>
+
+                                <div>
+                                    <button
+                                        disabled={tasks.done}
+                                        onClick={() => setOnEdit(index)}
+                                    >
+                                        Modifier
+                                    </button>
 
                                     <button
                                         onClick={() => {
                                             handleDelete(index);
                                         }}
                                     >
-                                        Supprimer
+                                        <span class="material-icons">
+                                            delete_forever
+                                        </span>
                                     </button>
-                                    <label>
-                                        <input
-                                            type="checkbox"
-                                            onChange={() =>
-                                                handleCheck(index, tasks.done)
-                                            }
-                                        />
-                                        Done
-                                    </label>
-
-                                    <button
-                                        disabled={tasks.done}
-                                        onClick={() => setOnEdit(index)}
-                                    >
-                                        Update
-                                    </button>
-                                </>
-                            )}
-                        </>
-                    );
-                })}
-            </div>
-        </>
+                                </div>
+                            </>
+                        )}
+                    </div>
+                );
+            })}
+        </div>
     );
 };
 

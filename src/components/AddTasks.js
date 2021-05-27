@@ -1,8 +1,8 @@
 import { AppContext } from "../Helper/Context";
-import { useContext, useReducer, useState } from "react";
+import { useContext, useState } from "react";
 
 const AddTasks = () => {
-    const { task, dispatch } = useContext(AppContext);
+    const { dispatch } = useContext(AppContext);
     const [textTask, setTextTask] = useState("");
 
     const handleSubmit = (e) => {
@@ -27,11 +27,13 @@ const AddTasks = () => {
             <form onSubmit={handleSubmit}>
                 <>
                     <input
+                        className="search"
+                        placeholder="Ajouter une tâche"
                         value={textTask}
                         type="text"
                         onChange={(e) => setTextTask(e.target.value)}
                     />
-                    <button type="submit">Add todo</button>
+                    <button type="submit">Ajouter</button>
                 </>
             </form>
         </>

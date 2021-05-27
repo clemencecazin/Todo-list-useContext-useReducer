@@ -1,0 +1,113 @@
+$bg: #681161;
+
+body {
+    background-color: $bg;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+h1 {
+    text-align: center;
+    color: rgb(149, 235, 247);
+    font-size: 3rem;
+    text-shadow: 2px 1px 2px #31042d;
+}
+
+.container {
+    width: 800px;
+    background-color: #fff;
+    min-height: 400px;
+    padding: 60px 100px;
+    -webkit-box-shadow: -1px 3px 10px -4px #000000;
+    box-shadow: -1px 3px 10px -4px #000000;
+    border: 40px solid black;
+    border-image: linear-gradient(
+        120deg,
+        rgba(104, 17, 97, 1) 0%,
+        rgba(252, 203, 248, 1) 100%
+    );
+
+    border-image-slice: 1;
+
+    form {
+        display: flex;
+        justify-content: center;
+        input {
+            width: 60%;
+            padding: 10px;
+            outline-color: turquoise;
+        }
+        button {
+            background-color: $bg;
+            margin-left: 2rem;
+            padding: 0.9rem;
+            color: #fff;
+            font-size: 1rem;
+            &:hover {
+                background-color: #9b5395;
+            }
+        }
+    }
+}
+
+.listing {
+    margin-top: 60px;
+    .nothing {
+        text-align: center;
+        margin-top: 80px;
+        font-size: 2rem;
+    }
+    .todo {
+        display: flex;
+        justify-content: space-between;
+        div:first-child {
+            display: flex;
+        }
+    }
+    input#done {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+}
+
+label.not-done {
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border: 2px solid #9b5395;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+label.done-task {
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border: 2px solid #9b5395;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    &:before {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: rgb(149, 235, 247);
+        content: "";
+        position: absolute;
+    }
+}
+
+.done {
+    text-decoration: line-through;
+}
