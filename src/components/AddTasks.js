@@ -19,17 +19,20 @@ const AddTasks = () => {
                 },
             });
         }
-        console.log(task);
+        setTextTask("");
     };
 
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    onChange={(e) => setTextTask(e.target.value)}
-                />
-                <button type="submit">Add todo</button>
+                <>
+                    <input
+                        value={textTask}
+                        type="text"
+                        onChange={(e) => setTextTask(e.target.value)}
+                    />
+                    <button type="submit">Add todo</button>
+                </>
             </form>
         </>
     );
