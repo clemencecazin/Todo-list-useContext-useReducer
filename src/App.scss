@@ -1,4 +1,6 @@
-$bg: #681161;
+$bg: #400468;
+$bg-hover: #620d9b;
+$second-color: rgb(149, 235, 247);
 
 body {
     background-color: $bg;
@@ -6,19 +8,29 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    width: 100vw;
+    font-family: sans-serif;
+    box-sizing: border-box;
 }
 
 button {
     border: none;
     background: transparent;
     cursor: pointer;
+    padding: 0.9rem;
+    font-size: 1rem;
+    box-shadow: none;
+}
+
+input {
+    outline: none;
 }
 
 h1 {
     text-align: center;
-    color: rgb(149, 235, 247);
+    color: $second-color;
     font-size: 3rem;
-    text-shadow: 2px 1px 2px #31042d;
+    text-shadow: 2px 1px 2px #340157;
 }
 
 .container {
@@ -29,85 +41,157 @@ h1 {
     -webkit-box-shadow: -1px 3px 10px -4px #000000;
     box-shadow: -1px 3px 10px -4px #000000;
     border: 40px solid black;
-    border-image: linear-gradient(
-        120deg,
-        rgba(104, 17, 97, 1) 0%,
-        rgba(252, 203, 248, 1) 100%
-    );
+    border-image: linear-gradient(120deg, $bg 0%, $second-color 100%);
 
     border-image-slice: 1;
-
+    box-sizing: border-box;
     form {
         display: flex;
         justify-content: center;
         input {
             width: 60%;
             padding: 10px;
-            outline-color: turquoise;
+            outline-color: $second-color;
         }
         button {
             background-color: $bg;
             margin-left: 2rem;
-            padding: 0.9rem;
             color: #fff;
-            font-size: 1rem;
             &:hover {
-                background-color: #9b5395;
+                background-color: $bg-hover;
             }
         }
+    }
+    p {
+        text-align: center;
+        color: red;
     }
 }
 
 .listing {
     margin-top: 60px;
+    box-sizing: border-box;
+
     .nothing {
         text-align: center;
         margin-top: 80px;
         font-size: 2rem;
     }
     .todo {
+        box-sizing: border-box;
         display: flex;
         justify-content: space-between;
+        margin: 30px 0;
+        border: 1px solid rgb(219, 218, 218);
+        min-height: 80px;
         div:first-child {
             display: flex;
+            align-items: center;
+            max-width: 600px;
+            padding: 0.9rem;
+            div {
+                margin-left: 10px;
+                font-size: 1.2em;
+            }
+        }
+        div:nth-child(2) {
+            display: flex;
+            align-items: center;
+            button:first-child {
+                background-color: $second-color;
+                margin-right: 1rem;
+                color: #fff;
+                &:hover {
+                    background-color: rgb(109, 215, 230);
+                }
+            }
+            button.btn-done {
+                background-color: rgb(190, 195, 196);
+                cursor: unset;
+                &:hover {
+                    background-color: rgb(190, 195, 196);
+                }
+            }
+            button:nth-child(2) span {
+                font-size: 34px;
+                background-color: $bg;
+                padding: 5px 10px;
+                color: #fff;
+                &:hover {
+                    background-color: $bg-hover;
+                }
+            }
+        }
+
+        // UPDATE
+
+        input.update {
+            height: 40px;
+            padding: 0 10px;
         }
     }
-    input#done {
+    input.check {
         opacity: 0;
         width: 0;
         height: 0;
     }
-}
-
-label.not-done {
-    width: 20px;
-    height: 20px;
-    background-color: transparent;
-    border: 2px solid #9b5395;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-label.done-task {
-    width: 20px;
-    height: 20px;
-    background-color: transparent;
-    border: 2px solid #9b5395;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    &:before {
-        width: 12px;
-        height: 12px;
+    label {
+        min-width: 20px;
+    }
+    label.not-done {
+        width: 20px;
+        height: 20px;
+        background-color: transparent;
+        border: 2px solid $bg;
         border-radius: 50%;
-        background-color: rgb(149, 235, 247);
-        content: "";
-        position: absolute;
+        cursor: pointer;
+    }
+
+    label.done-task {
+        width: 20px;
+        height: 20px;
+        background-color: transparent;
+        border: 2px solid $bg;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        &:before {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: $second-color;
+            content: "";
+            position: absolute;
+        }
     }
 }
 
 .done {
     text-decoration: line-through;
+    background-color: $second-color;
+}
+
+.red {
+    border-color: red;
+}
+
+.footer {
+    width: 100%;
+    height: 300px;
+    background-color: rgb(223, 248, 252);
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -100px;
+    z-index: -2000;
+}
+
+@media (max-width: 1024px) {
+    .container {
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+    }
 }

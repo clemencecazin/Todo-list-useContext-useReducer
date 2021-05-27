@@ -7,11 +7,11 @@ function App() {
     return (
         <AppProvider>
             <h1>To do List</h1>
-
             <div className="container">
                 <AddTasks />
                 <TodoList />
             </div>
+            <div className="footer"></div>
         </AppProvider>
     );
 }

@@ -4,9 +4,14 @@ import { useContext, useState } from "react";
 const AddTasks = () => {
     const { dispatch } = useContext(AppContext);
     const [textTask, setTextTask] = useState("");
+    const [add, setAdd] = useState();
+    const [message, setMessage] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setMessage("");
+        setAdd();
+
         console.log(textTask);
         if (textTask) {
             dispatch({
@@ -18,6 +23,9 @@ const AddTasks = () => {
                     },
                 },
             });
+        } else {
+            setAdd("red");
+            setMessage("Veuillez rentrer du texte");
         }
         setTextTask("");
     };
@@ -27,7 +35,7 @@ const AddTasks = () => {
             <form onSubmit={handleSubmit}>
                 <>
                     <input
-                        className="search"
+                        className={add}
                         placeholder="Ajouter une tâche"
                         value={textTask}
                         type="text"
@@ -36,6 +44,7 @@ const AddTasks = () => {
                     <button type="submit">Ajouter</button>
                 </>
             </form>
+            <p> {message}</p>
         </>
     );
 };

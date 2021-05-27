@@ -49,17 +49,27 @@ const TodoList = () => {
                     <div className="todo">
                         {onEdit === index ? (
                             <>
-                                <input
-                                    value={editTask}
-                                    placeholder={tasks.name}
-                                    type="text"
-                                    onChange={(e) =>
-                                        setEditTask(e.target.value)
-                                    }
-                                />
-                                <button onClick={() => handleUpdate(index)}>
-                                    Save
-                                </button>
+                                <div>
+                                    <input
+                                        className="update"
+                                        value={editTask}
+                                        placeholder={tasks.name}
+                                        type="text"
+                                        onChange={(e) =>
+                                            setEditTask(e.target.value)
+                                        }
+                                    />
+                                </div>
+                                <div>
+                                    <button onClick={() => handleUpdate(index)}>
+                                        Sauvegarder
+                                    </button>
+                                    <button onClick={() => setOnEdit(false)}>
+                                        <span class="material-icons">
+                                            close
+                                        </span>
+                                    </button>
+                                </div>
                             </>
                         ) : (
                             <>
@@ -70,10 +80,11 @@ const TodoList = () => {
                                                 ? "done-task"
                                                 : "not-done"
                                         }
-                                        htmlFor="done"
+                                        htmlFor={index}
                                     >
                                         <input
-                                            id="done"
+                                            className="check"
+                                            id={index}
                                             type="checkbox"
                                             onChange={() =>
                                                 handleCheck(index, tasks.done)
@@ -87,6 +98,7 @@ const TodoList = () => {
 
                                 <div>
                                     <button
+                                        className={tasks.done && "btn-done"}
                                         disabled={tasks.done}
                                         onClick={() => setOnEdit(index)}
                                     >
