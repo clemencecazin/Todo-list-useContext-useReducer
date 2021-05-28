@@ -6,6 +6,8 @@ const TodoList = () => {
     const [onEdit, setOnEdit] = useState(null);
     const [editTask, setEditTask] = useState("");
 
+    // Si action, transférer les données à useContext et useReducer
+
     const handleDelete = (i) => {
         dispatch({
             type: "DELETE",
@@ -67,7 +69,7 @@ const TodoList = () => {
                                         Sauvegarder
                                     </button>
                                     <button onClick={() => setOnEdit(false)}>
-                                        <span class="material-icons">
+                                        <span className="material-icons">
                                             close
                                         </span>
                                     </button>
@@ -100,7 +102,7 @@ const TodoList = () => {
 
                                 <div>
                                     <button
-                                        className={tasks.done && "btn-done"}
+                                        className={tasks.done ? "btn-done" : ""}
                                         disabled={tasks.done}
                                         onClick={() => setOnEdit(index)}
                                     >
@@ -112,7 +114,7 @@ const TodoList = () => {
                                             handleDelete(index);
                                         }}
                                     >
-                                        <span class="material-icons">
+                                        <span className="material-icons">
                                             delete_forever
                                         </span>
                                     </button>

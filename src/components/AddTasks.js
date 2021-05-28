@@ -4,13 +4,15 @@ import { useContext, useState } from "react";
 const AddTasks = () => {
     const { dispatch } = useContext(AppContext);
     const [textTask, setTextTask] = useState("");
-    const [add, setAdd] = useState();
+    const [add, setAdd] = useState("null");
     const [message, setMessage] = useState("");
+
+    // Si action, transférer les données à useContext et useReducer
 
     const handleSubmit = (e) => {
         e.preventDefault();
         setMessage("");
-        setAdd();
+        setAdd("");
 
         if (textTask) {
             dispatch({

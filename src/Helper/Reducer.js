@@ -1,4 +1,15 @@
+// COOKIES GET
+
+const initialState = [];
+
+export const initializer = (initialValue = initialState) =>
+    JSON.parse(localStorage.getItem("localCart")) || initialValue;
+
+// COOKIES GET
+
 export const taskReducer = (state, action) => {
+    // Si action est égale à la string retouner le state task avec traitement
+
     if (action.type === "ADD_TODO") {
         return [...state, action.payload.task];
     }

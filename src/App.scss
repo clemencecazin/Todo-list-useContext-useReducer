@@ -108,7 +108,7 @@ h1 {
             }
             button.btn-done {
                 background-color: rgb(190, 195, 196);
-                cursor: unset;
+                cursor: not-allowed;
                 &:hover {
                     background-color: rgb(190, 195, 196);
                 }
